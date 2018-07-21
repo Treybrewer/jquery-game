@@ -2,7 +2,14 @@ body {
     background-image: url("../images/background.jpg");
     
 }
-
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
 
 h1 {
     font-family: 'Anton', sans-serif;
@@ -15,7 +22,10 @@ h1 {
     z-index: 1;
     margin-top: 1%;
     text-shadow: 0px 0px 6px white;
-
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 h2 {
     font-family: 'Anton', sans-serif;
@@ -77,8 +87,10 @@ h5 {
     margin-left: 2%;
 }
 .img1 {
-    margin-left: 8%;
+    margin-left: 5%;
     box-shadow: 0 0 0 3px black;
+    position: absolute;
+    top: 500px;
 }
 .img1:hover {
     content: url("../images/hoverbrock.jpg");
@@ -86,6 +98,9 @@ h5 {
 .img2 {
     margin-left: 8%;
     box-shadow: 0 0 0 3px black;
+    position: absolute;
+    top: 500px;
+    margin-left: 30%;
 }
 .img2:hover {
     content: url("../images/Silvahover.jpg");
@@ -93,6 +108,9 @@ h5 {
 .img3 {
     margin-left: 8%;
     box-shadow: 0 0 0 3px black;
+    position: absolute;
+    top: 500px;
+    margin-left: 55%;
 }
 .img3:hover {
     content: url("../images/nelsonhover.jpg");
@@ -100,6 +118,9 @@ h5 {
 .img4 {
     margin-left: 8%;
     box-shadow: 0 0 0 3px black;
+    position: absolute;
+    top: 500px;
+    margin-left: 80%;
 }
 .img4:hover {
     content: url("../images/mirhover.jpg");
@@ -117,6 +138,9 @@ h5 {
     text-shadow: 0px 0px 6px white;
     margin-left: -2%;
     display: none;
+    position: absolute;
+    top: 200px;
+    margin-left: 45%;
 }
 .win {
     font-family: 'Anton', sans-serif;
@@ -201,4 +225,7 @@ h5 {
     margin-left: -9%;
     margin-bottom: 2%;
     display: none;
+    position: absolute;
+    top: 200px;
+    margin-left: 40%;
 }

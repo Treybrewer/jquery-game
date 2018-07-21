@@ -12,6 +12,10 @@
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     <!-- linking my css -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- link jquery -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+   <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 </head>
 
 <body>
@@ -33,9 +37,9 @@
     </div>
     <div class="row">
         <div class="col-xs-6">
-            <h3>Instructions:</h3>
+            <h3 id="instructions">Instructions:</h3>
             <br>
-            <p>
+            <p id="text">
                 <i>Pick your fighter and then fight the rest until,
                     <br>
                     <br> you find
@@ -44,7 +48,7 @@
             </p>
         </div>
         <div class="col-xs-2">
-            <p class="vs"> VS.</p>
+            <p id="vs" class="vs"> VS.</p>
         </div>
         <div class="col-xs-2">
             <p class="win">You Win!</p>
@@ -61,32 +65,32 @@
     </div>
     <div class="row">
         <div class="col-xs-6">
-            <h5>Wins:<h5 id="winArea"> </h5> </h5> 
+            <h5 id="winspace">Wins:<h5 id="winArea"> </h5> </h5> 
             <br>
-            <h5 >Loses:<h5 id="winArea"></h5></h5>
+            <h5 id="losespace">Loses:<h5 id="winArea"></h5></h5>
             
         </div>
     </div>
     <div class="row">
         <div class="col-xs-6">
-            <h4>Select Your Fighter</h4>
+            <h4 id="selectf">Select Your Fighter</h4>
         </div>
         <div class="col-xs-6">
-            <h4 class="opponent">Select Your Opponent!</h4>
+            <h4 id="opponent" class="opponent">Select Your Opponent!</h4>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-6">
-            <a href="#"><img class="img1" src="assets/images/brock.jpg"></a>
-            <a href="#"><img class="img2" src="assets/images/Silva.jpg"></a>
-            <a href="#"><img class="img3" src="assets/images/nelson.jpg"></a>
-            <a href="#"><img class="img4" src="assets/images/mir.jpg"></a>
+            <img id="brock" class="img1" src="assets/images/brock.jpg">
+            <img id="silva" class="img2" src="assets/images/Silva.jpg">
+            <img id="nelson" class="img3" src="assets/images/nelson.jpg">
+            <img id="mir" class="img4" src="assets/images/mir.jpg">
         </div>
     </div>
+    
     <!-- linking javascript -->
     <script src="assets/javascript/game.js"></script>
-    <!-- link jquery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    
 </body>
 
 </html>
