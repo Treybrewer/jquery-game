@@ -1,9 +1,10 @@
 var choosenPlayer = [];
 var choosenPlayerAp = [];
 var enemyPlayer = [];
+var enemyPlayerCA = [];
 var enemyPlayerAp = [];
-var playerhealth = [100];
-var enemyhealth = [100];
+var playerhealth = [];
+var enemyhealth = [];
 var winArea = [0];
 var loseArea = [0];
 $("#winArea").html(winArea);
@@ -16,6 +17,7 @@ $(document).ready(function () {
     // select fight event----------------------------------------------------------------------------
     // this will alter the text on the page to show certain elements and hide the rest as well as applying animations
     function start() {
+        
         // ---------------------------------------------------------------------------
         $(brock).click(function () {
             $("#brock").animate({ top: '-=39%', left: '+=11%' }, "slow");
@@ -28,7 +30,10 @@ $(document).ready(function () {
             $("#opponent").show();
             $("#opponent").animate({ top: '+=100px' }, "slow");
             choosenPlayer.push(brock);
-            choosenPlayerAp.push(33);
+            choosenPlayerAp.push(25);
+            playerhealth.push(120);
+            $("#playerhealth").html(playerhealth);
+            
             selectopponent();
         });
         // ---------------------------------------------------------------------------
@@ -43,7 +48,9 @@ $(document).ready(function () {
             $("#opponent").show();
             $("#opponent").animate({ top: '+=100px' }, "slow");
             choosenPlayer.push(silva);
-            choosenPlayerAp.push(29);
+            choosenPlayerAp.push(20);
+            playerhealth.push(75);
+            $("#playerhealth").html(playerhealth);
             selectopponent();
         });
         // ---------------------------------------------------------------------------
@@ -90,6 +97,7 @@ $(document).ready(function () {
 
         var removeItem = choosenPlayer[1];
         var removeItem1 = choosenPlayerAp[1];
+        var removeItem2 = playerhealth[1];
         // --------------------------------------------------------------
         $(brock).click(function () {
             $("#brock").show()
@@ -114,9 +122,10 @@ $(document).ready(function () {
             $("#playerhealth").show();
             $("#enemyhealth").show();
             enemyPlayer.push(brock);
-            enemyPlayerAp.push(33);
+            enemyPlayerAp.push(15);
             choosenPlayer.splice($.inArray(removeItem, choosenPlayer), 1);
             choosenPlayerAp.splice($.inArray(removeItem1, choosenPlayerAp), 1);
+            playerhealth.splice($.inArray(removeItem2, playerhealth), 1);
             fight();
         });
         // --------------------------------------------------------------
@@ -144,6 +153,7 @@ $(document).ready(function () {
             enemyPlayerAp.push(29);
             choosenPlayer.splice($.inArray(removeItem, choosenPlayer), 1);
             choosenPlayerAp.splice($.inArray(removeItem1, choosenPlayerAp), 1);
+            playerhealth.splice($.inArray(removeItem2, playerhealth), 1);
             fight();
         });
         // --------------------------------------------------------------
@@ -170,6 +180,7 @@ $(document).ready(function () {
             enemyPlayerAp.push(25);
             choosenPlayer.splice($.inArray(removeItem, choosenPlayer), 1);
             choosenPlayerAp.splice($.inArray(removeItem1, choosenPlayerAp), 1);
+            playerhealth.splice($.inArray(removeItem2, playerhealth), 1);
             fight();
         });
         // --------------------------------------------------------------
@@ -226,6 +237,14 @@ $(document).ready(function () {
     };
     // end attack function-------------------------------------------------------------------------------------
 
+    // select second opponent----------------------------------------------------------------------------------
+    function select2opponent() {
+
+    };
+
+    // end select second opponent------------------------------------------------------------------------------
+
+
     // win function--------------------------------------------------------------------------------------------
     function victory() {
         $(enemyPlayer).hide();
@@ -261,4 +280,10 @@ $(document).ready(function () {
         $("#enemyhealthtext").hide();
     };
     // end lose function---------------------------------------------------------------------------------------
+
+    // restart function----------------------------------------------------------------------------------------
+    function restart() {
+        $("#")
+    }
+    // end restart function------------------------------------------------------------------------------------
 });
