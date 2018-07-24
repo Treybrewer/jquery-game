@@ -17,7 +17,7 @@ $(document).ready(function () {
     // select fight event----------------------------------------------------------------------------
     // this will alter the text on the page to show certain elements and hide the rest as well as applying animations
     function start() {
-        
+        // reset();
         // ---------------------------------------------------------------------------
         $(brock).click(function () {
             $("#brock").animate({ top: '-=39%', left: '+=11%' }, "slow");
@@ -28,11 +28,11 @@ $(document).ready(function () {
             $("#losespace").hide();
             $("#selectf").hide();
             $("#opponent").show();
-            $("#opponent").animate({ top: '+=100px' }, "slow");
+            $("#opponent").animate({ top: '+=100px' }, "slow",);
             choosenPlayer.push(brock);
             choosenPlayerAp.push(25);
             playerhealth.push(120);
-            $("#playerhealth").html(playerhealth);
+            // $("#playerhealth").html(playerhealth);
             
             selectopponent();
         });
@@ -46,11 +46,11 @@ $(document).ready(function () {
             $("#losespace").hide();
             $("#selectf").hide();
             $("#opponent").show();
-            $("#opponent").animate({ top: '+=100px' }, "slow");
+            $("#opponent").animate({ top: '+=100px' }, "slow",);
             choosenPlayer.push(silva);
             choosenPlayerAp.push(20);
             playerhealth.push(75);
-            $("#playerhealth").html(playerhealth);
+            // $("#playerhealth").html(playerhealth);
             selectopponent();
         });
         // ---------------------------------------------------------------------------
@@ -63,7 +63,7 @@ $(document).ready(function () {
             $("#losespace").hide();
             $("#selectf").hide();
             $("#opponent").show();
-            $("#opponent").animate({ top: '+=100px' }, "slow");
+            $("#opponent").animate({ top: '+=100px' }, "slow",);
             choosenPlayer.push(nelson);
             choosenPlayerAp.push(25);
             selectopponent();
@@ -78,7 +78,7 @@ $(document).ready(function () {
             $("#losespace").hide();
             $("#selectf").hide();
             $("#opponent").show();
-            $("#opponent").animate({ top: '+=100px' }, "slow");
+            $("#opponent").animate({ top: '+=100px' }, "slow",);
             choosenPlayer.push(mir);
             choosenPlayerAp.push(32);
             selectopponent();
@@ -94,12 +94,13 @@ $(document).ready(function () {
 
     // select opponent ----------------------------------------------------------------------------------------
     function selectopponent() {
-
+        
         var removeItem = choosenPlayer[1];
         var removeItem1 = choosenPlayerAp[1];
         var removeItem2 = playerhealth[1];
         // --------------------------------------------------------------
         $(brock).click(function () {
+            playerhealth.splice($.inArray(removeItem2, playerhealth), 1);
             $("#brock").show()
             $("#brock").stop();
             $("#opponent").hide();
@@ -125,11 +126,12 @@ $(document).ready(function () {
             enemyPlayerAp.push(15);
             choosenPlayer.splice($.inArray(removeItem, choosenPlayer), 1);
             choosenPlayerAp.splice($.inArray(removeItem1, choosenPlayerAp), 1);
-            playerhealth.splice($.inArray(removeItem2, playerhealth), 1);
+            
             fight();
         });
         // --------------------------------------------------------------
         $(silva).click(function () {
+            playerhealth.splice($.inArray(removeItem2, playerhealth), 1);
             $("#silva").show();
             $("#silva").stop();
             $("#opponent").hide();
@@ -151,9 +153,9 @@ $(document).ready(function () {
             $("#enemyhealth").show();
             enemyPlayer.push(silva);
             enemyPlayerAp.push(29);
+            enemyhealth.push(75);
             choosenPlayer.splice($.inArray(removeItem, choosenPlayer), 1);
             choosenPlayerAp.splice($.inArray(removeItem1, choosenPlayerAp), 1);
-            playerhealth.splice($.inArray(removeItem2, playerhealth), 1);
             fight();
         });
         // --------------------------------------------------------------
@@ -162,14 +164,14 @@ $(document).ready(function () {
             $("#nelson").stop();
             $("#opponent").hide();
             $("#vs").show();
-            $("#vs").animate({ top: '+=100px' }, "slow");
+            $("#vs").animate({ top: '+=100px' }, "slow",);
             $("#nelson").animate({ top: '-=39%', left: '+=10%' }, "slow");
             $("#brock").hide();
             $("#silva").hide();
             $("#mir").hide();
             $(choosenPlayer).show();
             $("#attack").show();
-            $("#attack").animate({ top: '+=70%' }, "slow");
+            $("#attack").animate({ top: '+=70%' }, "slow",);
             $("#playerhealthtext").show();
             $("#playerhealthtext").animate({ top: '+=80%', left: '-=10%' }, "slow");
             $("#enemyhealthtext").show();
@@ -215,10 +217,12 @@ $(document).ready(function () {
 
     // attack function----------------------------------------------------------------------------------------
     function fight() {
+        
         $(brock).unbind("click");
         $(silva).unbind("click");
         $(nelson).unbind("click");
         $(mir).unbind("click");
+        $("#attack").unbind("animate");
         $(attack).click(function () {
             playerhealth -= enemyPlayerAp;
             $("#playerhealth").html(playerhealth);
@@ -226,11 +230,11 @@ $(document).ready(function () {
             $("#enemyhealth").html(enemyhealth);
             if (enemyhealth < 14) {
                 $("#winArea").html(winArea += 1);
-                victory();
+                select2opponent();
             };
             if (playerhealth < 14) {
                 $("#loseArea").html(loseArea += 1);
-                defeat();
+                select2opponent();
             };
 
         });
@@ -239,7 +243,18 @@ $(document).ready(function () {
 
     // select second opponent----------------------------------------------------------------------------------
     function select2opponent() {
-
+        reset();
+        $("#opponent").show();
+        $("#vs").hide();
+        $("#attack").hide();
+        $("#brock").show();
+        $("#silva").show();
+        $("#nelson").show();
+        $("#mir").show();
+        $("#playerhealth").hide();
+        $("#enemyhealth").hide();
+        $(enemyPlayer).hide();
+        selectopponent3();
     };
 
     // end select second opponent------------------------------------------------------------------------------
@@ -286,4 +301,29 @@ $(document).ready(function () {
         $("#")
     }
     // end restart function------------------------------------------------------------------------------------
+
+    // reset animation function--------------------------------------------------------------------------------
+    function reset() {
+        $("#attack").css({"margin-left": "%45", "top": "20px"});
+        $("#playerhealthtext").css({"margin-left": "35%", "top": "1px"});
+        $("#enemyhealthtext").css({"margin-left": "45%", "top": "1px"});
+    };
+    // end reset----------------------------------------------------------------------------------------------
+
+    // select opponent three function-------------------------------------------------------------------------
+    function selectopponent3() {
+        reset();
+        $("#opponent").show();
+        $("#vs").hide();
+        $("#attack").hide();
+        $("#brock").show();
+        $("#silva").show();
+        $("#nelson").show();
+        $("#mir").show();
+        $("#playerhealth").hide();
+        $("#enemyhealth").hide();
+        $(enemyPlayer).hide();
+        selectopponent();
+    };
+    // end select opponent three function---------------------------------------------------------------------
 });
